@@ -1,15 +1,4 @@
--- local function req(name)
---   return require('custom.plugins.'..name)
--- end
---
--- local names = {
---   'telescope',
---   'treesitter',
--- }
-
 local exports = {
-  -- NOTE: First, some plugins that don't require any configuration
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -22,11 +11,11 @@ local exports = {
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-}
 
--- for _, name in pairs(names) do
---   exports[#exports+1] = req(name)
--- end
+  -- require 'kickstart.plugins.autoformat',
+  -- require 'kickstart.plugins.debug',
+
+}
 
 return exports
 
