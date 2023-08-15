@@ -1,18 +1,20 @@
 local nmap = require('utils.keybind').nmap
 local ts = require('telescope.builtin')
 local function telemap(left, right, desc)
-  return nmap(left, right, { desc = 'Find ' .. desc })
+  return nmap('<leader>f'..left, right, { desc = 'Find ' .. desc })
 end
 
-telemap('<leader>ff', ts.find_files, 'Files')
-telemap('<leader>fc', ts.grep_string, 'Current Word')
-telemap('<leader>fw', ts.live_grep, 'Words')
-telemap('<leader>fd', ts.diagnostics, 'Diagnostics')
-telemap('<leader>fb', ts.buffers, 'Buffers')
-telemap('<leader>fg', ts.git_files, 'Git Files')
-telemap('<leader>fh', ts.help_tags, 'Help')
-telemap('<leader>fo', ts.oldfiles, 'recently opened files')
-telemap('<leader>f/', function()
+telemap('f', ts.find_files, 'Files')
+telemap('c', ts.grep_string, 'Current Word')
+telemap('w', ts.live_grep, 'Words')
+telemap('d', ts.diagnostics, 'Diagnostics')
+telemap('b', ts.buffers, 'Buffers')
+telemap('g', ts.git_files, 'Git Files')
+telemap('h', ts.help_tags, 'Help')
+telemap('o', ts.oldfiles, 'Recently Opened Files')
+telemap('y', '<cmd>Telescope neoclip<cr>', 'Yank History')
+
+telemap('/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
