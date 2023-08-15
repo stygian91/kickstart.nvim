@@ -1,37 +1,7 @@
-local function map(mode, left, right, opts)
-  return vim.keymap.set(mode, left, right, opts)
-end
+local map = require 'utils.keybind'.map
+local nmap = require 'utils.keybind'.nmap
 
-local function nmap(left, right, opts)
-  return map('n', left, right, opts)
-end
-
---------------------------------------------------
--- Telescope
--- See `:help telescope.builtin`
---------------------------------------------------
-
-local telescope = require('telescope.builtin')
-
-nmap('<leader>ff', telescope.find_files, { desc = 'Find Files' })
-nmap('<leader>fc', telescope.grep_string, { desc = 'Find Current Word' })
-nmap('<leader>fw', telescope.live_grep, { desc = 'Find Words' })
-nmap('<leader>fd', telescope.diagnostics, { desc = 'Find Diagnostics' })
-nmap('<leader>fb', telescope.buffers, { desc = 'Find Buffers' })
-nmap('<leader>fg', telescope.git_files, { desc = 'Find Git Files' })
-nmap('<leader>fh', telescope.help_tags, { desc = 'Find Help' })
-nmap('<leader>fo', telescope.oldfiles, { desc = 'Find recently opened files' })
-nmap('<leader>f/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-    layout_config = {
-      width = function(_, cols, _) return math.min(cols, 100) end,
-      height = function(_, rows, _) return math.min(rows, 30) end,
-    },
-  })
-end, { desc = 'Fuzzily search in current buffer' })
+require('keybinds.telescope')
 
 --------------------------------------------------
 -- Diagnostic keymaps
@@ -45,7 +15,6 @@ nmap('<leader>ld', diagnostic.open_float, { desc = 'Open floating diagnostic mes
 
 --------------------------------------------------
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 --------------------------------------------------
 
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -63,10 +32,33 @@ nmap('<leader>bc', ':bufdo bd<cr>', { desc = 'Close All Buffers' })
 nmap('<leader>n', ':enew<cr>', { desc = 'Create an Empty Buffer' })
 
 --------------------------------------------------
-
---------------------------------------------------
 -- General
 --------------------------------------------------
 
+nmap('<leader>q', ':q<cr>', { desc = 'Quit' })
 nmap('<leader>w', ':w<cr>', { desc = 'Write File' })
+nmap('<leader>e', function ()
+  require'telescope'.extensions.file_browser.file_browser()
+end, { desc = 'Explore' })
 
+--------------------------------------------------
+-- UI
+--------------------------------------------------
+
+nmap('<leader>ur', function()
+  vim.o.rnu = not vim.o.rnu
+  if vim.o.rnu then
+    print('Relative numbers enabled.')
+  else
+    print('Relative numbers disabled.')
+  end
+end, { desc = 'Toggle relative line numbers' })
+
+nmap('<leader>uw', function()
+  vim.o.wrap = not vim.o.wrap
+  if vim.o.wrap then
+    print('Word wrap enabled.')
+  else
+    print('Word wrap disabled.')
+  end
+end, { desc = 'Toggle word wrap' })

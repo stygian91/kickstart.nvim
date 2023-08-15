@@ -17,7 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {})
 
 
@@ -43,10 +43,18 @@ require('telescope').setup {
       },
     },
   },
+
+  extensions = {
+    file_browser = {
+      hijack_netrw = true,
+    },
+  },
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+
+require('telescope').load_extension('file_browser')
 
 --------------------------
 -- Configure Treesitter --
@@ -231,7 +239,5 @@ cmp.setup {
 --------------------------
 -- Keybinds 
 --------------------------
-require('keybinds')
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+require('keybinds')
