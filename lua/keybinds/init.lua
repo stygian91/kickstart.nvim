@@ -29,7 +29,9 @@ nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 nmap('<leader>c', function() vim.api.nvim_buf_delete(0, {}) end, { desc = 'Close current buffer' })
 nmap('<leader>bc', ':bufdo bd<cr>', { desc = 'Close All Buffers' })
-nmap('<leader>n', ':enew<cr>', { desc = 'Create an Empty Buffer' })
+nmap('<leader>bn', ':enew<cr>', { desc = 'Create an Empty Buffer' })
+nmap(']b', '<cmd>bn<cr>', { desc = 'Next buffer' })
+nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
 --------------------------------------------------
 -- General
