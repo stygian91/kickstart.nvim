@@ -5,8 +5,15 @@ local function telemap(left, right, desc)
 end
 
 telemap('f', ts.find_files, 'Files')
+telemap('F', function() ts.find_files({ hidden = true, no_ignore = true }) end, 'Files Everywhere')
 telemap('c', ts.grep_string, 'Current Word')
 telemap('w', ts.live_grep, 'Words')
+telemap('W', function()
+  ts.live_grep({
+    additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+  })
+end, 'Words Everywhere')
+
 telemap('d', ts.diagnostics, 'Diagnostics')
 telemap('b', ts.buffers, 'Buffers')
 telemap('g', ts.git_files, 'Git Files')

@@ -6,7 +6,7 @@ vim.g.maplocalleader = ' '
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch       = false
+vim.o.hlsearch       = true
 -- highlight current line
 vim.o.cursorline     = true
 -- relative line numbers
