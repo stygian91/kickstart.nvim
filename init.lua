@@ -47,6 +47,15 @@ require('telescope').setup {
   extensions = {
     file_browser = {
       hijack_netrw = true,
+      mappings = {
+        n = {
+          h = function(bufnr)
+            local fb_actions = require('telescope').extensions.file_browser.actions
+            fb_actions.toggle_respect_gitignore(bufnr)
+            fb_actions.toggle_hidden(bufnr)
+          end,
+        },
+      },
     },
   },
 }
