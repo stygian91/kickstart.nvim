@@ -39,9 +39,7 @@ nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
 nmap('<leader>q', ':q<cr>', { desc = 'Quit' })
 nmap('<leader>w', ':w<cr>', { desc = 'Write File' })
-nmap('<leader>e', function()
-  require 'telescope'.extensions.file_browser.file_browser()
-end, { desc = 'Explore' })
+nmap('<leader>e', '<cmd>Telescope file_browser path=%:p:h<cr>', { desc = 'Explore' })
 
 --------------------------------------------------
 -- UI
