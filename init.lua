@@ -49,12 +49,11 @@ require('telescope').setup {
       hijack_netrw = true,
       select_buffer = true,
       grouped = true,
+      hidden = true,
       mappings = {
         n = {
           h = function(bufnr)
-            local fb_actions = require('telescope').extensions.file_browser.actions
-            fb_actions.toggle_respect_gitignore(bufnr)
-            fb_actions.toggle_hidden(bufnr)
+            require('telescope').extensions.file_browser.actions.toggle_respect_gitignore(bufnr)
           end,
         },
       },

@@ -10,7 +10,13 @@ telemap('c', ts.grep_string, 'Current Word')
 telemap('w', ts.live_grep, 'Words')
 telemap('W', function()
   ts.live_grep({
-    additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+    glob_pattern = '!.git',
+    additional_args = function(args)
+      return vim.list_extend(args, {
+        "--hidden",
+        "--no-ignore",
+      })
+    end,
   })
 end, 'Words Everywhere')
 
@@ -27,8 +33,8 @@ telemap('/', function()
     winblend = 10,
     previewer = false,
     layout_config = {
-      width = function(_, cols, _) return math.min(cols, 100) end,
-      height = function(_, rows, _) return math.min(rows, 30) end,
+      width = function(_, cols) return math.min(cols, 100) end,
+      height = function(_, rows) return math.min(rows, 30) end,
     },
   })
 end, 'in current buffer')
