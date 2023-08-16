@@ -22,7 +22,7 @@ end, 'Words Everywhere')
 
 telemap('d', ts.diagnostics, 'Diagnostics')
 telemap('b', ts.buffers, 'Buffers')
-telemap('g', ts.git_files, 'Git Files')
+telemap('g', ts.git_status, 'Git Files')
 telemap('h', ts.help_tags, 'Help')
 telemap('o', ts.oldfiles, 'Recently Opened Files')
 telemap('y', '<cmd>Telescope neoclip<cr>', 'Yank History')
