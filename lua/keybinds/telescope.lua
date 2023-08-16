@@ -1,7 +1,7 @@
 local nmap = require('utils.keybind').nmap
 local ts = require('telescope.builtin')
 local function telemap(left, right, desc)
-  return nmap('<leader>f'..left, right, { desc = 'Find ' .. desc })
+  return nmap('<leader>f' .. left, right, { desc = 'Find ' .. desc })
 end
 
 telemap('f', ts.find_files, 'Files')
@@ -25,4 +25,3 @@ telemap('/', function()
     },
   })
 end, 'in current buffer')
-

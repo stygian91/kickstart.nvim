@@ -241,7 +241,7 @@ cmp.setup {
 }
 
 --------------------------
--- Keybinds 
+-- Keybinds
 --------------------------
 
 require('keybinds')
