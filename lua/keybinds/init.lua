@@ -49,20 +49,23 @@ end, { desc = 'Explore' })
 -- UI
 --------------------------------------------------
 
-nmap('<leader>ur', function()
-  vim.o.rnu = not vim.o.rnu
-  if vim.o.rnu then
-    print('Relative numbers enabled.')
+local function toggle_bool_option(option, enabled_msg, disabled_msg)
+  vim.o[option] = not vim.o[option]
+  if vim.o[option] then
+    print(enabled_msg)
   else
-    print('Relative numbers disabled.')
+    print(disabled_msg)
   end
+end
+
+nmap('<leader>ur', function()
+  toggle_bool_option('rnu', 'Relative numbers enabled.', 'Relative numbers disabled.')
 end, { desc = 'Toggle relative line numbers' })
 
 nmap('<leader>uw', function()
-  vim.o.wrap = not vim.o.wrap
-  if vim.o.wrap then
-    print('Word wrap enabled.')
-  else
-    print('Word wrap disabled.')
-  end
+  toggle_bool_option('wrap', 'Word wrap enabled.', 'Word wrap disabled.')
 end, { desc = 'Toggle word wrap' })
+
+nmap('<leader>uh', function()
+  toggle_bool_option('hlsearch', 'Search highlight enabled', 'Search highlight disabled.')
+end, { desc = 'Toggle search highlight' })
