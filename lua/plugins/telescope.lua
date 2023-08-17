@@ -18,8 +18,9 @@ return {
     },
   },
 
-  config = function(plugin, opts)
-    require('telescope').setup {
+  config = function()
+    local telescope = require('telescope')
+    telescope.setup {
       defaults = {
         mappings = {
           i = {
@@ -35,10 +36,11 @@ return {
           select_buffer = true,
           grouped = true,
           hidden = true,
+          initial_mode = 'normal',
           mappings = {
             n = {
               h = function(bufnr)
-                require('telescope').extensions.file_browser.actions.toggle_respect_gitignore(bufnr)
+                telescope.extensions.file_browser.actions.toggle_respect_gitignore(bufnr)
               end,
             },
           },
@@ -47,9 +49,9 @@ return {
     }
 
     -- Enable telescope fzf native, if installed
-    pcall(require('telescope').load_extension, 'fzf')
+    pcall(telescope.load_extension, 'fzf')
 
-    require('telescope').load_extension('file_browser')
-    require('telescope').load_extension('neoclip')
+    telescope.load_extension('file_browser')
+    telescope.load_extension('neoclip')
   end,
 }
