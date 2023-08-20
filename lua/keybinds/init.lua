@@ -2,6 +2,7 @@ local map = require 'utils.keybind'.map
 local nmap = require 'utils.keybind'.nmap
 
 require('keybinds.telescope')
+require('keybinds.buffer')
 
 --------------------------------------------------
 -- Diagnostic keymaps
@@ -22,17 +23,6 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
---------------------------------------------------
--- Buffer
---------------------------------------------------
-
-nmap('<leader>c', function() vim.api.nvim_buf_delete(0, {}) end, { desc = 'Close current buffer' })
-nmap('<leader>C', function() vim.api.nvim_buf_delete(0, { force = true }) end, { desc = 'Close current buffer' })
-nmap('<leader>bc', ':bufdo bd<cr>', { desc = 'Close All Buffers' })
-nmap('<leader>bn', ':enew<cr>', { desc = 'Create an Empty Buffer' })
-nmap(']b', '<cmd>bn<cr>', { desc = 'Next buffer' })
-nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
 --------------------------------------------------
 -- General
