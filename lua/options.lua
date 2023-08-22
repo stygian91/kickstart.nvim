@@ -51,3 +51,7 @@ vim.o.tabstop        = 2
 vim.o.softtabstop    = 2
 vim.o.shiftwidth     = 2
 vim.o.expandtab      = true
+
+-- display spaces/tabs
+vim.o.list           = false -- off by default
+vim.o.listchars      = 'tab:>␣,trail:~,extends:>,precedes:<,space:·'

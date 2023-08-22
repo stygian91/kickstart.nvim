@@ -60,3 +60,7 @@ end, { desc = 'Toggle word wrap' })
 nmap('<leader>uh', function()
   toggle_bool_option('hlsearch', 'Search highlight enabled', 'Search highlight disabled.')
 end, { desc = 'Toggle search highlight' })
+
+nmap('<leader>us', function()
+  toggle_bool_option('list', 'Show whitespace enabled.', 'Show whitespace disabled.')
+end, { desc = 'Toggle whitespace symbols' })
