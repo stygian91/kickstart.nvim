@@ -9,6 +9,7 @@ local function attach_keybinds(bufnr)
 
   nmap('<leader>lr', vim.lsp.buf.rename, 'Rename')
   nmap('<leader>la', vim.lsp.buf.code_action, 'Code Action')
+  nmap('<leader>lf', ':Format<cr>', 'Format buffer')
 
   nmap('gd', vim.lsp.buf.definition, 'Go to Definition')
   nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')

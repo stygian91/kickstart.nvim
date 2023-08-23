@@ -1,8 +1,9 @@
 local map = require('utils.keybind').map
 local nmap = require('utils.keybind').nmap
 
-require('keybinds.telescope')
 require('keybinds.buffer')
+require('keybinds.git')
+require('keybinds.telescope')
 require('keybinds.ui')
 
 --------------------------------------------------
