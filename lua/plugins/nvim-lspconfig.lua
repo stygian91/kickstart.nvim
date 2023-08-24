@@ -50,6 +50,7 @@ return {
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       intelephense = {},
+      vuels = {},
 
       lua_ls = {
         Lua = {
