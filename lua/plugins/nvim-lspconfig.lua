@@ -51,6 +51,7 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       intelephense = {},
       vuels = {},
+      jsonls = {},
 
       lua_ls = {
         Lua = {
