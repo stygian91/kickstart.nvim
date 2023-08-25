@@ -49,9 +49,11 @@ return {
       -- rust_analyzer = {},
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
-      intelephense = {},
+      -- intelephense = {},
+      phpactor = { filetypes = { 'php' } },
       vuels = {},
       jsonls = {},
+      yamlls = { filetypes = { 'yaml' } },
 
       lua_ls = {
         Lua = {
