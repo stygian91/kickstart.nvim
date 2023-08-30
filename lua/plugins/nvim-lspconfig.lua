@@ -44,9 +44,9 @@ return {
     --  define the property 'filetypes' to the map in question.
     local servers = {
       -- clangd = {},
-      -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
+      gopls = {},
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       -- intelephense = {},
