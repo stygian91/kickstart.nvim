@@ -37,3 +37,6 @@ nmap('<leader>e', function()
     path = '%:p:h',
   })
 end, { desc = 'Explore' })
+
+map('v', '<leader>y', '"*y', { desc = 'Yank into system register' });
+nmap('<leader>p', '"*p', { desc = 'Paste from system register' });
