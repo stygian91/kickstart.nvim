@@ -24,8 +24,21 @@ return {
       defaults = {
         mappings = {
           i = {
-            ['<C-u>'] = false,
-            ['<C-d>'] = false,
+            ["<C-d>"] = require('telescope.actions').cycle_history_next,
+            ["<C-u>"] = require('telescope.actions').cycle_history_prev,
+          },
+        },
+
+        preview = false,
+
+        sorting_strategy = "ascending",
+
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+          },
+          center = {
+            prompt_position = "top",
           },
         },
       },
