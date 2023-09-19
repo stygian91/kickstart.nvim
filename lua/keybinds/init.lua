@@ -40,3 +40,6 @@ end, { desc = 'Explore' })
 
 map('v', '<leader>y', '"*y', { desc = 'Yank into system register' });
 nmap('<leader>p', '"*p', { desc = 'Paste from system register' });
+
+nmap(']q', ':cnext<cr>', { desc = 'Go to next quickfix item.' })
+nmap('[q', ':cprevious<cr>', { desc = 'Go to prev quickfix item.' })
