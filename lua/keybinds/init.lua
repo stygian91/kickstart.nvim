@@ -23,8 +23,8 @@ nmap('<leader>ld', diagnostic.open_float, { desc = 'Open floating diagnostic mes
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 --------------------------------------------------
 -- General
