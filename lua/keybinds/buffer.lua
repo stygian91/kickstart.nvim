@@ -13,7 +13,7 @@ nmap('<leader>bn', ':enew<cr>', { desc = 'Create an Empty Buffer' })
 nmap(']b', '<cmd>bn<cr>', { desc = 'Next buffer' })
 nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
-for i = 1, 5, 1 do
+for i = 1, 9, 1 do
   nmap('<leader>' .. i, function()
     local buffs = list_buffs()
     if buffs[i] then
