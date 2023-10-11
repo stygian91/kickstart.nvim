@@ -51,6 +51,7 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       intelephense = {},
       -- phpactor = { filetypes = { 'php' } },
+      sqlls = {},
       vuels = {},
       jsonls = {},
       yamlls = { filetypes = { 'yaml' } },
