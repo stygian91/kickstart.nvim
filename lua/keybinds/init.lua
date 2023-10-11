@@ -31,6 +31,7 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 --------------------------------------------------
 
 nmap('<leader>q', ':q<cr>', { desc = 'Quit' })
+nmap('<leader>Q', ':qa!<cr>', { desc = 'Force Quit' })
 nmap('<leader>w', ':w<cr>', { desc = 'Write File' })
 nmap('<leader>e', function()
   require('telescope').extensions.file_browser.file_browser({
