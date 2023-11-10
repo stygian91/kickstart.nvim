@@ -29,7 +29,7 @@ return {
           },
         },
 
-        preview = false,
+        -- preview = false,
 
         sorting_strategy = "ascending",
 
