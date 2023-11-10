@@ -24,8 +24,14 @@ return {
       defaults = {
         mappings = {
           i = {
-            ["<C-d>"] = require('telescope.actions').cycle_history_next,
-            ["<C-u>"] = require('telescope.actions').cycle_history_prev,
+            -- ["<C-d>"] = require('telescope.actions').cycle_history_next,
+            -- ["<C-u>"] = require('telescope.actions').cycle_history_prev,
+            ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
+            ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
+          },
+          n = {
+            ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
+            ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
           },
         },
 
