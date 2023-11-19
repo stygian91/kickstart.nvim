@@ -5,6 +5,7 @@ require('keybinds.buffer')
 require('keybinds.git')
 require('keybinds.telescope')
 require('keybinds.ui')
+require('keybinds.debug')
 
 --------------------------------------------------
 -- Diagnostic keymaps
