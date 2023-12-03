@@ -11,6 +11,11 @@ nmap('<F5>', function ()
   dapui.open()
 end, { desc = "Start/Continue Debugging" })
 
+nmap('<F6>', function ()
+  dap.stop()
+  dapui.close()
+end, { desc = "Start/Continue Debugging" })
+
 nmap('<F8>', function ()
   dap.step_over()
 end, { desc = "Step Over" })
