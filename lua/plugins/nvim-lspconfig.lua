@@ -46,6 +46,7 @@ return {
       -- clangd = {},
       -- pyright = {},
       -- rust_analyzer = {},
+      csharp_ls = {},
       gopls = {},
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
