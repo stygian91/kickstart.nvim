@@ -55,3 +55,6 @@ vim.o.expandtab      = true
 -- display spaces/tabs
 vim.o.list           = false -- off by default
 vim.o.listchars      = 'tab:>␣,trail:~,extends:>,precedes:<,space:·'
+
+-- Map BG phonetic keyboard to English layout so we can use basic vim keybinds in normal mode without switching keyboard layouts
+vim.o.langmap = "яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьx,цc,жv,бb,нn,мm,ч`,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬX,ЦC,ЖV,БB,НN,МM,Ч~"
