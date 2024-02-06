@@ -86,5 +86,7 @@ return {
         }
       end
     }
+
+    vim.filetype.add({ extension = { templ = "templ" } })
   end,
 }
