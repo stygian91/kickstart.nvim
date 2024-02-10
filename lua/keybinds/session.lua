@@ -1,8 +1,10 @@
 local nmap = require('utils.keybind').nmap
+local ts_actions = require('telescope.actions')
+local ts_actions_state = require('telescope.actions.state')
 
 local function get_sessions_dir()
   local data_path = vim.fn.stdpath('data')
-  return vim.fn.resolve(data_path .. '/styg-sessions/')
+  return vim.fn.resolve(data_path .. '/sessions/')
 end
 
 local function get_cwd_session_name()
@@ -56,6 +58,27 @@ local function delete_session()
   print('Session file "' .. session_path .. '" deleted.')
 end
 
+local function open_session(prompt_bufnr)
+  local selected_entry = ts_actions_state.get_selected_entry()
+  local path = vim.fn.resolve(get_sessions_dir() .. '/' .. selected_entry[1])
+  ts_actions.close(prompt_bufnr)
+  vim.cmd('bufdo bd')
+  vim.cmd('so ' .. path)
+end
+
+local function find_session()
+  require('telescope.builtin').find_files({
+    prompt_title = 'Find session',
+    cwd = get_sessions_dir(),
+    attach_mappings = function(_, map)
+      map('n', '<cr>', open_session)
+      map('i', '<cr>', open_session)
+      return true
+    end,
+  })
+end
+
 nmap('<leader>ow', write_session, { desc = 'Write cwd session' })
 nmap('<leader>or', read_session, { desc = 'Read cwd session' })
 nmap('<leader>od', delete_session, { desc = 'Delete cwd session' })
+nmap('<leader>of', find_session, { desc = 'Find session' })
