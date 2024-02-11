@@ -9,10 +9,17 @@ end
 
 local function get_cwd_session_name()
   local cwd = vim.fn.getcwd()
-  local checksum_slice = string.sub(vim.fn.sha256(cwd), 1, 16)
-  local basename = vim.fs.basename(cwd)
 
-  return basename .. '-' .. checksum_slice .. '.vim'
+  cwd = string.gsub(cwd, '%.', '')
+  cwd = string.gsub(cwd, '/', '-')
+  local first = string.sub(cwd, 1, 1)
+  if first == '-' then
+    cwd = string.sub(cwd, 2)
+  end
+
+  local checksum_slice = string.sub(vim.fn.sha256(cwd), 1, 8)
+
+  return cwd .. '-' .. checksum_slice .. '.vim'
 end
 
 local function get_session_path()
