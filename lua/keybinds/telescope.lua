@@ -33,7 +33,7 @@ telemap('D', ts.diagnostics, 'Workspace Diagnostics')
 telemap('b', ts.buffers, 'Buffers')
 telemap('g', ts.git_status, 'Git Files')
 telemap('h', ts.help_tags, 'Help')
-telemap('o', ts.oldfiles, 'Recently Opened Files')
+telemap('o', function() ts.oldfiles({ only_cwd = true }) end, 'Recently Opened Files')
 telemap('y', '<cmd>Telescope neoclip<cr>', 'Yank History')
 telemap('q', ts.quickfix, 'Quickfix')
 
