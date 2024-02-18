@@ -21,7 +21,7 @@ telemap('W', function()
   })
 end, 'Words Everywhere')
 
-telemap('B', function()
+telemap('b', function()
   ts.live_grep({
     grep_open_files = true,
     prompt_title = "Live Grep In Open Buffers",
@@ -30,7 +30,6 @@ end, 'In Open Buffers')
 
 telemap('d', function() ts.diagnostics({ bufnr = 0 }) end, 'Diagnostics')
 telemap('D', ts.diagnostics, 'Workspace Diagnostics')
-telemap('b', ts.buffers, 'Buffers')
 telemap('g', ts.git_status, 'Git Files')
 telemap('h', ts.help_tags, 'Help')
 telemap('o', function() ts.oldfiles({ only_cwd = true }) end, 'Recently Opened Files')
