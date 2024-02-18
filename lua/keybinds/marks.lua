@@ -1,13 +1,23 @@
 local nmap = require('utils.keybind').nmap
 local marks = require('local-plugins.marks')
+local letters = {
+  'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+  'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+  'z', 'x', 'c', 'v', 'b', 'n', 'm',
+}
 
-nmap('<leader>m', function ()
-  local first_empty = marks.get_first_empty()
-  if first_empty == false then
-    print("No empty slots")
-    return
-  end
+for _, letter in pairs(letters) do
+  local upper = string.upper(letter)
+  nmap('m' .. letter, function()
+    print('Added mark to ' .. upper)
+    marks.add(upper)
+  end, { desc = 'Add mark to ' .. upper })
 
-  marks.add(first_empty)
-end, { desc = 'Add mark' })
+  nmap('\'' .. letter, function()
+    marks.go(upper)
+  end, { desc = 'Go to mark ' .. upper })
 
+  nmap('`' .. letter, function()
+    marks.go(upper, true)
+  end, { desc = 'Go to mark ' .. upper })
+end

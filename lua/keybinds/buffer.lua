@@ -18,11 +18,11 @@ nmap('<leader>bf', require('telescope.builtin').buffers, { desc = 'Find buffer' 
 nmap(']b', '<cmd>bn<cr>', { desc = 'Next buffer' })
 nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
 
--- for i = 1, 9, 1 do
---   nmap('<leader>' .. i, function()
---     local buffs = list_buffs()
---     if buffs[i] then
---       vim.api.nvim_set_current_buf(buffs[i])
---     end
---   end, { desc = 'which_key_ignore' });
--- end
+for i = 1, 9, 1 do
+  nmap('<leader>' .. i, function()
+    local buffs = list_buffs()
+    if buffs[i] then
+      vim.api.nvim_set_current_buf(buffs[i])
+    end
+  end, { desc = 'which_key_ignore' });
+end
