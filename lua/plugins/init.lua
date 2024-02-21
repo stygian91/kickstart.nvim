@@ -12,8 +12,8 @@ local exports = {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
+  -- change surrounding things like quotes, tags etc
+  'tpope/vim-surround',
 
 }
 
