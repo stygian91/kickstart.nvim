@@ -75,4 +75,6 @@ return {
     telescope.load_extension('file_browser')
     telescope.load_extension('neoclip')
   end,
+
+  event = "VeryLazy",
 }

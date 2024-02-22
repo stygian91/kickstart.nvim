@@ -7,10 +7,11 @@ local exports = {
   'tpope/vim-sleuth',
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',  opts = {}, event = "VeryLazy" },
+  
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim', opts = {}, event = "VeryLazy" },
 
   -- change surrounding things like quotes, tags etc
   'tpope/vim-surround',

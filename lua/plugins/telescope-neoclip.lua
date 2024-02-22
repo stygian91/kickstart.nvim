@@ -6,4 +6,5 @@ return {
   config = function()
     require('neoclip').setup()
   end,
+  event = "VeryLazy",
 }
