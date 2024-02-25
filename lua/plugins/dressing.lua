@@ -5,4 +5,5 @@ return {
       insert_only = false,
     },
   },
+  event = "VeryLazy",
 }

@@ -8,6 +8,7 @@ require('keybinds.ui')
 require('keybinds.debug')
 require('keybinds.flash')
 require('keybinds.session')
+require('keybinds.marks')
 
 --------------------------------------------------
 -- Diagnostic keymaps
