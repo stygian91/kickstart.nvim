@@ -50,7 +50,14 @@ return {
       intelephense = {},
       -- phpactor = { filetypes = { 'php' } },
       sqlls = {},
-      vuels = {},
+      vuels = {
+        -- vetur = {
+          -- useWorkspaceDependencies = true,
+          -- experimental = {
+          --   templateInterpolationService = true,
+          -- },
+        -- },
+      },
       jsonls = {},
       yamlls = { filetypes = { 'yaml' } },
 
