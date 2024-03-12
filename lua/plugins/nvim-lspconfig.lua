@@ -1,5 +1,3 @@
--- NOTE: This is where your plugins related to LSP can be installed.
---  The configuration is done below. Search for lspconfig to find it below.
 return {
   -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
@@ -53,7 +51,14 @@ return {
       intelephense = {},
       -- phpactor = { filetypes = { 'php' } },
       sqlls = {},
-      vuels = {},
+      vuels = {
+        -- vetur = {
+          -- useWorkspaceDependencies = true,
+          -- experimental = {
+          --   templateInterpolationService = true,
+          -- },
+        -- },
+      },
       jsonls = {},
       yamlls = { filetypes = { 'yaml' } },
 
@@ -90,4 +95,6 @@ return {
 
     vim.filetype.add({ extension = { templ = "templ" } })
   end,
+
+  event = "VeryLazy",
 }

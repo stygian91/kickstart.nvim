@@ -7,9 +7,18 @@ return {
   },
   build = ':TSUpdate',
   config = function()
+    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "blade"
+    }
+
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
-      -- ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
       ensure_installed = {
         'go',
         'lua',
@@ -25,6 +34,7 @@ return {
         'php',
         'yaml',
         'json',
+        'blade',
       },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -90,4 +100,5 @@ return {
       },
     }
   end,
+  event = "VeryLazy",
 }
