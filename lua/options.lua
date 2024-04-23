@@ -54,7 +54,7 @@ vim.o.expandtab      = true
 
 -- display spaces/tabs
 vim.o.list           = false -- off by default
-vim.o.listchars      = 'tab:>␣,trail:~,extends:>,precedes:<,space:·'
+vim.o.listchars      = 'tab:» ,trail:~,extends:>,precedes:<,space:·'
 
 -- Add Laravel Blade templates as a file type
 vim.filetype.add({
