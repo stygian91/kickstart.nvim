@@ -37,6 +37,7 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 nmap('<leader>q', ':q<cr>', { desc = 'Quit' })
 nmap('<leader>Q', ':qa!<cr>', { desc = 'Force Quit' })
 nmap('<leader>w', ':w<cr>', { desc = 'Write File' })
+nmap('<leader>W', ':w!<cr>', { desc = 'Force Write File' })
 nmap('<leader>e', function()
   require('telescope').extensions.file_browser.file_browser({
     path = '%:p:h',
@@ -53,3 +54,7 @@ nmap('[q', ':cprevious<cr>', { desc = 'Go to prev quickfix item.' })
 
 map('v', '<C-j>', ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Center cursor while moving up/down half pages
+nmap('<C-d>', '<C-d>zz', { silent = true })
+nmap('<C-u>', '<C-u>zz', { silent = true })

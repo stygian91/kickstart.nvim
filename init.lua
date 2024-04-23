@@ -1,3 +1,7 @@
+--------------------------
+-- Options
+--------------------------
+
 require('options')
 
 -- Install package manager
