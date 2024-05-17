@@ -48,7 +48,13 @@ return {
       gopls = {},
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
-      intelephense = {},
+      intelephense = {
+        intelephense = {
+          files = {
+            maxSize = 5000000,
+          },
+        },
+      },
       -- phpactor = { filetypes = { 'php' } },
       sqlls = {},
       vuels = {
