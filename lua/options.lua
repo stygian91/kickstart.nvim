@@ -1,6 +1,8 @@
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.no_ocaml_maps = true
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
