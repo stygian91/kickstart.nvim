@@ -50,29 +50,12 @@ return {
       },
 
       extensions = {
-        file_browser = {
-          hijack_netrw = true,
-          select_buffer = true,
-          grouped = true,
-          hidden = true,
-          initial_mode = 'normal',
-          mappings = {
-            n = {
-              h = function(bufnr)
-                telescope.extensions.file_browser.actions.toggle_respect_gitignore(bufnr)
-              end,
-              g = false,
-              ['<BS>'] = telescope.extensions.file_browser.actions.goto_parent_dir,
-            },
-          },
-        },
       },
     }
 
     -- Enable telescope fzf native, if installed
     pcall(telescope.load_extension, 'fzf')
 
-    telescope.load_extension('file_browser')
     telescope.load_extension('neoclip')
   end,
 
