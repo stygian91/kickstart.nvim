@@ -38,11 +38,8 @@ nmap('<leader>q', ':q<cr>', { desc = 'Quit' })
 nmap('<leader>Q', ':qa!<cr>', { desc = 'Force Quit' })
 nmap('<leader>w', ':w<cr>', { desc = 'Write File' })
 nmap('<leader>W', ':w!<cr>', { desc = 'Force Write File' })
-nmap('<leader>e', function()
-  require('telescope').extensions.file_browser.file_browser({
-    path = '%:p:h',
-  })
-end, { desc = 'Explore' })
+
+nmap('<leader>e', '<CMD>Oil<CR>', { desc = 'Explore' })
 
 map('v', '<leader>y', '"*y', { desc = 'Yank into system register' });
 nmap('<leader>p', '"*p', { desc = 'Paste from system register' });
