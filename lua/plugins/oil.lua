@@ -20,6 +20,9 @@ return {
       ["g\\"] = "actions.toggle_trash",
     },
     use_default_keymaps = false,
+    float = {
+      max_width = 100,
+    },
   },
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
