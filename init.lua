@@ -43,3 +43,9 @@ require('neodev').setup()
 --------------------------
 
 require('keybinds')
+
+--------------------------
+-- Local plugins
+--------------------------
+
+require('local-plugins')
