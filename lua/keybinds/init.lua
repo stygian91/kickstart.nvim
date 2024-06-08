@@ -54,3 +54,8 @@ map('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 -- Center cursor while moving up/down half pages
 nmap('<C-d>', '<C-d>zz', { silent = true })
 nmap('<C-u>', '<C-u>zz', { silent = true })
+
+nmap('<A-l>', '<C-w>l')
+nmap('<A-h>', '<C-w>h')
+nmap('<A-j>', '<C-w>j')
+nmap('<A-k>', '<C-w>k')
