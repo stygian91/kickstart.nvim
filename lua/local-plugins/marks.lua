@@ -1,3 +1,4 @@
+local nmap = require('utils.keybind').nmap
 local Marks = {}
 
 function Marks.add(key)
@@ -28,4 +29,26 @@ function Marks.go(key, first)
   vim.fn.setpos('.', { mark[3], mark[1], col, 0 })
 end
 
-return Marks
+-- replace default mark mappings
+
+local letters = {
+  'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+  'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+  'z', 'x', 'c', 'v', 'b', 'n', 'm',
+}
+
+for _, letter in pairs(letters) do
+  local upper = string.upper(letter)
+  nmap('m' .. letter, function()
+    print('Added mark to ' .. upper)
+    Marks.add(upper)
+  end, { desc = 'Add mark to ' .. upper })
+
+  nmap('\'' .. letter, function()
+    Marks.go(upper)
+  end, { desc = 'Go to mark ' .. upper })
+
+  nmap('`' .. letter, function()
+    Marks.go(upper, true)
+  end, { desc = 'Go to mark ' .. upper })
+end
