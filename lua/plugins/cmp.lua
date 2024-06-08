@@ -9,8 +9,7 @@ return {
     -- Adds LSP completion capabilities
     'hrsh7th/cmp-nvim-lsp',
 
-    -- Adds a number of user-friendly snippets
-    'rafamadriz/friendly-snippets',
+    -- Adds a number of user-friendly snippets 'rafamadriz/friendly-snippets',
   },
 
   config = function()
@@ -51,6 +50,20 @@ return {
         { name = 'luasnip' },
       },
     }
+
+    cmp.setup.filetype({ "sql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.filetype({ "mysql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
+    })
   end,
 
   event = "VeryLazy",
