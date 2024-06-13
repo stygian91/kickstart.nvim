@@ -20,6 +20,7 @@ return {
       ["g\\"] = "actions.toggle_trash",
     },
     use_default_keymaps = false,
+    skip_confirm_for_simple_edits = true,
     float = {
       max_width = 100,
     },
