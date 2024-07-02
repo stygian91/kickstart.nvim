@@ -11,7 +11,17 @@ local exports = {
   
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {}, event = "VeryLazy" },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    event = "VeryLazy",
+    config = function ()
+      local ft = require('Comment.ft')
+      ft.set('mysql', '-- %s')
+
+      require('Comment').setup()
+    end
+  },
 
   -- change surrounding things like quotes, tags etc
   'tpope/vim-surround',
