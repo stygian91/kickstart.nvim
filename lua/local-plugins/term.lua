@@ -12,17 +12,16 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 map("t", "<c-[>", "<c-\\><c-n>")
 
--- Open a terminal at the bottom of the screen with a fixed height.
 map("n", "<leader>tb", function()
   vim.cmd.new()
   vim.cmd.wincmd "J"
   vim.api.nvim_win_set_height(0, 12)
   vim.wo.winfixheight = true
   vim.cmd.term()
-end)
+end, { desc = "Open Terminal at the bottom" })
 
 map("n", "<leader>tv", function()
   vim.cmd.new()
   vim.cmd.wincmd "L"
   vim.cmd.term()
-end)
+end, { desc = "Open a terminal in a vertical split" })
