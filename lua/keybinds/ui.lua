@@ -19,7 +19,7 @@ end
 
 uimap('r', 'rnu', 'Relative numbers', 'Toggle relative line numbers')
 uimap('w', 'wrap', 'Word wrap', 'Toggle word wrap')
-uimap('h', 'hlsearch', 'Search highlight', 'Toggle search highlight.')
 uimap('s', 'list', 'Show whitespace', 'Toggle whitespace symbols')
+nmap('<leader>uh', ':noh<cr>', { desc = 'Disable search highlight.' })
 nmap('<leader>uc', ':TSContextToggle<cr>', { desc = 'Toggle TreeSitter context' })
 nmap('<leader>uu', ':UndotreeToggle<cr>', { desc = 'Toggle showing Undotree' })
