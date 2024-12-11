@@ -14,6 +14,8 @@ nmap('<leader>bo', ':BufferLineCloseOthers<cr>', { desc = 'Close other buffers' 
 nmap('<leader>bp', ':BufferLinePick<cr>', { desc = 'Pick Buffer' });
 nmap('<leader>bn', ':enew<cr>', { desc = 'Create an Empty Buffer' })
 nmap('<leader>bf', require('telescope.builtin').buffers, { desc = 'Find buffer' })
+nmap('<leader>br', ':BufferLineCloseRight<cr>', { desc = 'Close buffers to the right' });
+nmap('<leader>bl', ':BufferLineCloseLeft<cr>', { desc = 'Close buffers to the left' });
 
 nmap(']b', '<cmd>bn<cr>', { desc = 'Next buffer' })
 nmap('[b', '<cmd>bp<cr>', { desc = 'Previous buffer' })
