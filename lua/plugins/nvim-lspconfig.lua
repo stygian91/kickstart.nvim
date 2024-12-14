@@ -45,7 +45,8 @@ return {
       -- pyright = {},
       -- rust_analyzer = {},
       gopls = {},
-      tsserver = {},
+      -- tsserver = {},
+      ts_ls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       intelephense = {
         intelephense = {
