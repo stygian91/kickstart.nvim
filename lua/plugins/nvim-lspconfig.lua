@@ -59,10 +59,10 @@ return {
       sqlls = {},
       vuels = {
         -- vetur = {
-          -- useWorkspaceDependencies = true,
-          -- experimental = {
-          --   templateInterpolationService = true,
-          -- },
+        -- useWorkspaceDependencies = true,
+        -- experimental = {
+        --   templateInterpolationService = true,
+        -- },
         -- },
       },
       jsonls = {},
