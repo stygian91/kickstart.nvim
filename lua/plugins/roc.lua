@@ -1,3 +1,3 @@
 return {
-  { dir = "~/.config/nvim/local-plugins/roc" },
+  -- { dir = "~/.config/nvim/local-plugins/roc" },
 }
