@@ -12,12 +12,10 @@ telemap('W', function()
   ts.live_grep({
     prompt_title = 'Live Grep Everywhere',
     glob_pattern = '!.git',
-    additional_args = function(args)
-      return vim.list_extend(args, {
-        "--hidden",
-        "--no-ignore",
-      })
-    end,
+    additional_args = {
+      "--hidden",
+      "--no-ignore",
+    },
   })
 end, 'Words Everywhere')
 
