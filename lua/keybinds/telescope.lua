@@ -45,3 +45,14 @@ telemap('/', function()
     },
   })
 end, 'in current buffer')
+
+telemap('s', function ()
+  vim.ui.input({ prompt = "Enter a subfolder" }, function(input)
+    local path = vim.fn.resolve(vim.fn.getcwd() .. '/' .. input)
+
+    ts.live_grep({
+      cwd = path,
+      prompt_title = 'Live Grep In Subfolder',
+    })
+  end)
+end, 'In Subfolder')
