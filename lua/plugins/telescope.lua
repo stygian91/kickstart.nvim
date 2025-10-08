@@ -28,10 +28,12 @@ return {
             -- ["<C-u>"] = require('telescope.actions').cycle_history_prev,
             ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
             ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
+            ["<C-s>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
           },
           n = {
             ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
             ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
+            ["<C-s>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
           },
         },
 
