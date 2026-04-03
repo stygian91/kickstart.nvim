@@ -5,7 +5,8 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'catppuccin-mocha',
+      -- theme = 'catppuccin-mocha',
+      theme = 'catppuccin-latte',
       component_separators = '|',
       section_separators = '',
     },

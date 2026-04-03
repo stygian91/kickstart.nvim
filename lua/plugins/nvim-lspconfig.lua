@@ -48,7 +48,7 @@ return {
       intelephense = {
         intelephense = {
           files = {
-            maxSize = 5000000,
+            maxSize = 50000000,
           },
         },
       },
@@ -62,6 +62,7 @@ return {
         -- },
         -- },
       },
+      ols = { filetypes = {'odin'} },
       jsonls = {},
       yamlls = { filetypes = { 'yaml' } },
 
