@@ -24,6 +24,10 @@ return {
     float = {
       max_width = 100,
     },
+    columns = {
+      "icon",
+      "size",
+    },
   },
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
