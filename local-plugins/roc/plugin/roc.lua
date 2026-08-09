@@ -14,4 +14,4 @@ parsers.roc = {
   },
 }
 
-require("lspconfig").roc_ls.setup({})
+vim.lsp.enable("roc_ls")

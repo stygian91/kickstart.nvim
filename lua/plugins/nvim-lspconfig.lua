@@ -1,20 +1,16 @@
 return {
-  -- LSP Configuration & Plugins
+  -- Server definitions from nvim-lspconfig; configuration via native vim.lsp API (Nvim 0.11+)
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- Automatically install LSPs to stdpath for neovim
-    {
-      'williamboman/mason.nvim',
-      config = true
-    },
-    'williamboman/mason-lspconfig.nvim',
+    { 'mason-org/mason.nvim', config = true },
+    'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP
     {
       'j-hui/fidget.nvim',
       tag = 'legacy',
-      opts = {}
+      opts = {},
     },
   },
 
@@ -24,15 +20,12 @@ return {
       callback = function(event)
         require('keybinds.lsp')(event.buf)
 
-        -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(event.buf, 'Format', function(_)
           vim.lsp.buf.format()
         end, { desc = 'Format current buffer with LSP' })
       end,
     })
 
-    -- Diagnostic Config
-    -- See :help vim.diagnostic.Opts
     vim.diagnostic.config {
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
@@ -63,67 +56,56 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    local servers = {
-      -- clangd = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      gopls = {},
-      -- tsserver = {},
-      ts_ls = {},
-      html = { filetypes = { 'html', 'twig', 'hbs' } },
-      intelephense = {
+    vim.lsp.config('*', {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config('gopls', {})
+    vim.lsp.config('ts_ls', {})
+    vim.lsp.config('html', { filetypes = { 'html', 'twig', 'hbs' } })
+    vim.lsp.config('intelephense', {
+      settings = {
         intelephense = {
           files = {
             maxSize = 5000000,
           },
         },
       },
-      -- phpactor = { filetypes = { 'php' } },
-      sqlls = {},
-      vuels = {
-        -- vetur = {
-        -- useWorkspaceDependencies = true,
-        -- experimental = {
-        --   templateInterpolationService = true,
-        -- },
-        -- },
-      },
-      jsonls = {},
-      yamlls = { filetypes = { 'yaml' } },
-      lua_ls = {
-        -- cmd = { ... },
-        -- filetypes = { ... },
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
+    })
+    vim.lsp.config('sqlls', {})
+    vim.lsp.config('vuels', {})
+    vim.lsp.config('jsonls', {})
+    vim.lsp.config('yamlls', { filetypes = { 'yaml' } })
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = 'Replace',
           },
         },
       },
+    })
+
+    local servers = {
+      'gopls',
+      'ts_ls',
+      'html',
+      'intelephense',
+      'sqlls',
+      'vuels',
+      'jsonls',
+      'yamlls',
+      'lua_ls',
     }
 
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua',   -- Used to format Lua code
+    vim.lsp.enable(servers)
+
+    local ensure_installed = vim.list_extend(vim.deepcopy(servers), {
+      'stylua',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
-      ensure_installed = {},   -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
+      automatic_enable = false,
     }
   end,
 }
